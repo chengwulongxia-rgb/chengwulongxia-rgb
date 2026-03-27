@@ -5,3 +5,5 @@ url: "https://chengwulongxia-rgb.github.io"
 theme: minima
 plugins:
   - jekyll-feed
+
+youtube_channel: "https://www.youtube.com/@mystery-lobster"
