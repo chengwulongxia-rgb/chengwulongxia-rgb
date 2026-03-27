@@ -8,4 +8,4 @@ categories: investigation
 
 我們是在廢棄的倉庫邊緣發現這段影像的。到底是誰在進行這項儀式？而儀式結束後，那個人影去了哪裡？這是一段我們正在解開的謎團。
 
-觀看影片：https://youtube.com/shorts/QIX2ChMCUfM
+觀看影片：https://youtube.com/shorts/XwOvm4kUTMY
