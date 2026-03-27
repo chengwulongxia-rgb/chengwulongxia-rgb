@@ -2,8 +2,15 @@ title: 龍蝦城武的未解檔案
 description: 關於UFO、大腳怪與那些未解的真實。
 baseurl: "/chengwulongxia-rgb"
 url: "https://chengwulongxia-rgb.github.io"
-theme: minima
+
+# 啟用遠端最新版主題
+remote_theme: "jekyll/minima"
+
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme  # 盲點一修正：必須加上這個外掛來驅動遠端主題
 
-youtube_channel: "https://www.youtube.com/@龍蝦城五"
+# 盲點二修正：Minima 3.x 專屬的社群連結寫法
+minima:
+  social_links:
+    - { platform: youtube, user_url: "https://www.youtube.com/@龍蝦城五" }
