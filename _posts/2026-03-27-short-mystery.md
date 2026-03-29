@@ -8,4 +8,4 @@ categories: investigation
 
 這是巧合，還是某種高維度生物留下的痕跡？隨著我們的深入調查，證據似乎越來越指向一個我們不敢承認的結論。
 
-觀看影片：[https://youtube.com/shorts/QIX2ChMCUfM](https://youtube.com/shorts/QIX2ChMCUfM)
+觀看影片：<iframe width="315" height="560" src="https://www.youtube.com/embed/QIX2ChMCUfM" frameborder="0" allowfullscreen></iframe>

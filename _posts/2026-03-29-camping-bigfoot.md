@@ -16,9 +16,9 @@ tags: [大腳怪, Bigfoot, 驚悚, 露營, 龍蝦城五]
 
 ### 觀看完整機密檔案
 
-🎬 **[點此觀看 YouTube 跨次元錄像](https://www.youtube.com/shorts/exRyKaEAAU8)**
+🎬 **[點此觀看 YouTube 跨次元錄像](https://www.youtube.com/shorts/GqEGttGP2Cc)**
 
-<iframe width="315" height="560" src="https://www.youtube.com/embed/exRyKaEAAU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="315" height="560" src="https://www.youtube.com/embed/GqEGttGP2Cc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 _追蹤龍蝦城五，為你揭開更多官方不敢承認的超自然檔案。_
