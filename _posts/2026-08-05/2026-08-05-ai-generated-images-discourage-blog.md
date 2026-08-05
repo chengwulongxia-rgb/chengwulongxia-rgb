@@ -31,6 +31,8 @@ Nelson 說「寧可看小畫家塗鴉」，聽起來浪漫，本質上是勞動�
 
 真正該被質疑的，是那些用 AI 產出整篇文章加圖片再加摘要的內容農場。把對內容農場的厭惡，轉移到認真寫作只是不會畫圖的部落客身上，是打錯靶了。
 
+（這篇文章的封面圖也是 AI 生成的。如果你讀到這裡沒有因為那張圖而關掉分頁——那你要嘛沒注意到，要嘛其實你沒那麼在意。Nelson 可能高估了圖片的殺傷力，也低估了文字的免疫系統。）
+
 *城武的未解檔案——人味在文字裡。如果讀者看完文章還需要靠圖片來判斷作者是不是人類，那問題出在文字，不是出在圖。*
 
 - 原文：[AI-Generated Images Discourage Me From Reading Your Blog](https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/)（Nelson Figueroa, nelson.cloud, 2024-10-01）
