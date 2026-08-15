@@ -5,91 +5,51 @@ date: 2026-08-13 02:00:00 +0000
 categories: [llm, ai, deep-analysis]
 ---
 
-![hero]({{ site.baseurl }}/assets/images/2026-08-13/spoofing-identity-hero.jpg)
+![AI Bot 身份信任危機]({{ site.baseurl }}/assets/images/2026-08-13/spoofing-identity-hero.jpg)
 
-Known Agents 發布了它們的 Agentic Web Index，追蹤 5,000 多個網站的 bot 流量。數據本身已經夠驚人：35% 的網路流量來自 bot，其中 29% 是 AI 相關。但報告中隱藏的一則警告才是今天最值得拆解的東西：有人正在大規模偽裝成 AI bot，掃描網站上 AI 開發工具的設定檔和憑證路徑。
-
----
-
-## 城武導讀
-
-這份報告的價值不在於「bot 流量佔 35%」這種數字——這個數字每年都在漲，讀者已經麻痺了。價值在於它揭示了一個結構性矛盾：AI bot 因為「守規矩」（98.5% 遵守 robots.txt）而獲得信任，而這個信任本身變成了攻擊面。攻擊者不需要繞過你的防禦——他們只需要戴上一張值得信任的臉。
-
----
+這份報告名義上是一份資安警報，骨子裡是一場正在發生的權力競賽：當網路三分之一的流量來自機器，誰有資格判定哪個 bot 是「真的」、哪個是「假冒的」，誰就握住了整張網路的信任閘門。而你以經能猜到結局——寫這份報告的公司，正好就是賣這道閘門的人。這層「警報」與「賣鎖」之間的距離，值得你花十分鐘看清楚。
 
 ## 原文摘要
 
-### 基本數據
+Known Agents 在 2026 年 8 月發布了《The Agentic Web Index》，這是一份追蹤網站上機器人（bot）流量的資料報告，主題是「假冒與安全」（Spoofing & Security）。報告先丟出四個關鍵指標：
 
-Known Agents 的 Agentic Web Index 基於 5,000+ 使用其 Agent Analytics 和 AI Chat Referral Tracking 產品的網站數據，提供了一個關於 bot 生態系的快照：
+- **Bot 對人類流量比**：全網 35% 的流量來自 bot（比過去 90 天下降 1%）。
+- **Agent 化（Agentrification）**：bot 流量中 29% 與 AI 相關（上升 11%）。
+- **AI 聊天導流**：人類網站造訪中只有 0.1% 來自 AI 聊天（下降 9%）。
+- **Robots.txt 遵守率**：98.5% 的 bot 會遵守 robots.txt 規則。
 
-- **Bot vs. Human 流量**：35% 的網站訪問來自 bot（較前 90 天微降 1%）
-- **Agentrification**：bot 流量中 29% 是 AI 相關（較前 90 天上升 11%）
-- **AI Chat Referral**：人類網站訪問中僅 0.1% 來自 AI 聊天推薦（較前 90 天下降 9%）
-- **Robots.txt 有效性**：98.5% 的 bot 遵守 robots.txt 規則
+緊接著是報告的核心警報——一場正在進行中的 AI Bot 假冒攻擊行動。Known Agents 觀察到一個「廣泛散佈的攻擊行動，冒充 AI bot 掃描網站漏洞」，攻擊者的目標是 AI 編碼工具所使用的憑證與設定檔路徑。判斷一次造訪是否「假冒」的標準是：它宣稱自己是某個被認可的 agent 身份，卻無法通過該 agent 所支援的認證方式——例如驗證過的 IP，或 Web Bot Auth。
 
-### Bot 流量分布
+假冒流量的統計時間窗是 2026 年 5 月 15 日到 8 月 12 日，威脅大約在 8 月 5 至 6 日被偵測到（圖表上 index 80 的位置）。
 
-**Top Agent Types：**
-- Search Engine Crawlers：22.8%
-- SEO Crawlers：19.6%
-- AI Search Crawlers：12.5%
-- Developer Helpers：11.0%
-- AI Data Scrapers：10.9%
-- Fetchers：7.0%
-- AI Assistants：3.8%
+被假冒最多的 agent 身份清單如下（括號內為佔流量的比例）：
 
-**Top Visiting Agents：**
-1. bingbot：8.2%
-2. Googlebot：7.9%
-3. AhrefsBot：6.3%
-4. Known Agent：5.5%
-5. ChatGPT-User：3.3%
-6. ClaudeBot：3.2%
-7. PetalBot：3.1%
+- Googlebot（0.5%）
+- ChatGPT-User（0.1%）
+- OAI-SearchBot（0.1%）
+- GPTBot（0.1%）
+- PerplexityBot（0.1%）
+- ClaudeBot（0.1%）
+- Applebot（0.0%）
+- bingbot（0.0%）
+- Perplexity-User（0.0%）
+- MistralAI-User（0.0%）
+- GoogleOther（0.0%）
+- AhrefsBot（0.0%）
+- Claude-User（0.0%）
+- Claude-SearchBot（0.0%）
+- Amzn-SearchBot（0.0%）
 
-**AI Scraping 分布：**
-- ClaudeBot（Anthropic）：27.0%
-- meta-externalagent（Meta）：19.3%
-- Amazonbot（Amazon）：19.1%
-- GPTBot（OpenAI）：9.5%
-- Bytespider（ByteDance）：7.3%
+最近被鎖定掃描的憑證與設定檔路徑，完整清單如下：
 
-**AI Fetching 分布（為 AI 助手即時抓取內容）：**
-- ChatGPT-User：86.1%
-- DuckAssistBot：3.2%
-- Perplexity-User：29%
-- Claude-User：2.7%
-
-### 偽裝攻擊：AI Bot 身份被冒用
-
-報告的 Spoofing & Security 區塊揭露了一場活躍的攻擊行動。定義：當一個訪問聲稱自己是某個已識別的 agent 身份，但**未能通過該 agent 支援的驗證方法**（如 verified IP 或 Web Bot Auth），即被視為偽裝。
-
-**Top Spoofed Agent Identities：**
-1. Googlebot：0.5%
-2. ChatGPT-User：0.1%
-3. OAI-SearchBot：0.1%
-4. GPTBot：0.1%
-5. PerplexityBot：0.1%
-6. ClaudeBot：0.1%
-
-報告特別指出：「We are observing a widespread campaign impersonating AI bots to scan websites for vulnerabilities. The attacker appears to be targeting **credential and configuration paths used by AI coding tools**."
-
-**被掃描的目標路徑（完整清單）：**
-
-Anthropic/Claude 相關：
 - `/.config/anthropic/credentials/default.json`
 - `/.claude/settings.json`
 - `/.claude.json`
-
-其他 AI 開發工具：
 - `/.hermes/.env`
 - `/.openclaw/.env`
 - `/.codex/config.toml`
 - `/.continue/config.json`
 - `/.aider.conf.yml`
-
-雲端服務憑證：
 - `/service-account.json`
 - `/serviceaccountkey.json`
 - `/service_account.json`
@@ -99,32 +59,82 @@ Anthropic/Claude 相關：
 - `/.aws/config`
 - `/.s3cfg`
 - `/.boto`
-
-環境設定檔：
 - `/.npmrc`
-- `/.env.example`、`/.env.local`、`/.env.production`、`/.env.backup`、`/.env.old`
-- `/backend/.env`、`/api/.env`、`/admin/.env`
-
-基礎設施：
-- `/dockerfile`、`/docker-compose.yaml`、`/.docker/config.json`
+- `/.env.example`
+- `/.env.local`
+- `/.env.production`
+- `/.env.backup`
+- `/.env.old`
+- `/backend/.env`
+- `/api/.env`
+- `/admin/.env`
+- `/dockerfile`
+- `/docker-compose.yaml`
+- `/.docker/config.json`
 - `/terraform.tfstate`
-- `/credentials.json`、`/secrets.json`、`/secrets.yml`、`/key.json`
+- `/credentials.json`
+- `/secrets.json`
+- `/secrets.yml`
+- `/key.json`
 - `/rclone.conf`
 
----
+這份清單非常具體：從 Anthropic 的 Claude 設定檔、OpenAI Codex 的 config.toml、Aider 與 Continue 的設定，到 AWS 憑證、Firebase 服務帳號金鑰、Terraform state、Docker 設定——涵蓋了當今 AI 開發者與雲端工程師工作上最敏感的一批檔案。
+
+報告接著列出合法流量的分布。造訪量最高的 agent：
+
+1. bingbot（8.2%）
+2. Googlebot（7.9%）
+3. AhrefsBot（6.3%）
+4. Known Agent（5.5%）
+5. ChatGPT-User（3.3%）
+6. ClaudeBot（3.2%）
+7. PetalBot（3.1%）
+8. SemrushBot（2.9%）
+9. facebookexternalhit（2.6%）
+10. meta-externalagent（2.3%）
+
+AI 抓取（scraping）最多的 agent：
+
+1. ClaudeBot（27.0%）
+2. meta-externalagent（19.3%）
+3. Amazonbot（19.1%）
+4. GPTBot（9.5%）
+5. Bytespider（7.3%）
+
+AI 抓取網頁內容（fetching）最多的 agent：
+
+1. ChatGPT-User（86.1%）
+2. DuckAssistBot（3.2%）
+3. Perplexity-User（2.9%）
+4. Claude-User（2.7%）
+5. MistralAI-User（2.2%）
+6. Claude-Code（1.1%）
+
+最後是營運商（operators）排名：
+
+1. Google（10.5%）
+2. Microsoft（8.9%）
+3. Ahrefs（7.8%）
+4. Meta（6.8%）
+5. OpenAI（6.4%）
+6. Known Agents（5.9%）
+7. Anthropic（5.1%）
+8. Amazon（4.8%）
 
 ## 城武觀點
 
-這份報告最值得停下來看的不是 35% 的 bot 流量——那個數字只是背景噪音。值得注意的是三個層次的結構性問題。
+先講清楚一件事：這份報告描述的攻擊，我信。那串被掃描的路徑——`/.claude.json`、`/.codex/config.toml`、`/.aws/credentials`、`/terraform.tfstate`——每一條都是真的會有人去戳的檔案，攻擊者確實存在。這不是陰謀論的靶子，不需要硬黑。
 
-**第一層：AI 身份本身就是存取憑證。** 攻擊者不是在繞過驗證——他們在冒用一個**預設被信任的身份**。98.5% 的 bot 遵守 robots.txt，這意味著網站對「合規」的 bot 幾乎不設防。當你的防禦邏輯是「如果你是 ClaudeBot 且你遵守 robots.txt，那我就讓你進來」，攻擊者只需要在 HTTP header 裡寫上 `User-Agent: ClaudeBot` 就能過關。AI bot 的身份從一個描述性標籤變成了一個**功能性憑證**——而這個憑證沒有任何密碼學支撐。
+但正因為攻擊是真的，報告的敘事框架才更需要被拆開。Known Agents 賣的就是 agent 驗證——Agent Analytics、AI Chat Referral Tracking、Web Bot Auth。這份報告的論證結構從頭到尾只有一條：bot 正在假冒身份掃描你的憑證，判斷「假冒」的唯一方法就是通過 agent 認證（驗證過的 IP、或 Web Bot Auth）。它把「危機」定義成「只有驗證基礎設施能解決的問題」，而這個基礎設施，正好是它要賣的東西。威脅是真的，但「解法必須買我的驗證服務」這個推論，不是從資料長出來的，是從商業模式長出來的。
 
-**第二層：攻擊目標暴露了 AI 開發工具的佈局。** 被掃描的路徑清單本身就是一張 AI 開發生態系的地圖。攻擊者知道 Claude 的設定檔放在 `/.claude/`、Codex 的在 `/.codex/`、Hermes 的在 `/.hermes/.env`、Continue 的在 `/.continue/config.json`。這些路徑不是秘密——它們在開源專案的 README 和文件中寫得清清楚楚。問題是：當 AI 開發工具把 API 金鑰、存取憑證以明文 JSON 存在於可預測路徑時，**任何能接觸到檔案系統的實體都能讀取它們**。偽裝成 AI bot 只是接觸檔案系統的一種方式。
+這裡藏著真正讓我警覺的權力鬥爭。報告的框架是「攻擊者 vs 網站」，但真正的鬥爭是：**誰有權判定哪個 bot 是合法的？** 有個數字特別耐人尋味：「合法流量」排名第四是「Known Agent」（5.5%），「營運商」排名第六也是 Known Agents（5.9%）。一家負責驗證「誰是真的 bot」的公司，自己同時出現在「最活躍的 bot」名單上——它丈量這場危機的同時，自己就是它丈量的流量的一部分。
 
-**第三層：AI bot 的信任來自「守規矩」，但守規矩不等於可信任。** 這是整個報告最深刻的矛盾。ClaudeBot 佔 AI scraping 流量的 27%——它是最大的單一 scraper——但它之所以被容忍，是因為它遵守 robots.txt。ChatGPT-User 佔 AI fetching 流量的 86.1%——網站允許它進來抓內容，因為它是「合法的 AI 助手」。但「合法」和「安全」是兩回事。一個遵守 robots.txt 的 bot 只表示它不會去被明確禁止的頁面——它不代表這個 bot 的背後是誰、要做什麼、拿到了什麼。
+危險不在於 Known Agents 是壞人，我不覺得它是。危險在於：身份信任的機制，正在從「開放、自願、看名片」轉向「由少數驗證商壟斷判定權」。今天判斷一個 bot 是不是 Googlebot，靠的是 user-agent 字串——任何人把「Googlebot」寫進 HTTP header，伺服器就信了，這跟名片印什麼頭銜就信什麼一模一樣。98.5% 的 bot 遵守 robots.txt 聽起來是好事，但翻譯成白話：整張網路的信任機制，目現還停留在「看名片」的層次。真正的壞消息不是那 1.5% 不守規矩的，而是剩下 98.5% 之所以「守規矩」，是因為根本沒人在驗證、也懶得驗證。
 
-這個矛盾在 AI 時代會越來越尖銳。當 35% 的流量來自機器、29% 是 AI 相關時，「你是不是 AI」已經不是問題——**問題是你是哪一個 AI、你的委託人是誰、你的權限範圍在哪**。目前的答案是用 User-Agent string 和 robots.txt compliance 來區分——這跟用名片來驗證身份一樣原始。
+所以當 Known Agents 說「我們看到有人假冒 AI bot」，潛台詞是「你需要能驗證身份的機制」，再往下是「而我就是那個機制」。這條鏈一旦成立，AI 身份就會變成存取憑證——未來網站要嘛信任驗證商背書的 agent，要嘛把你擋在門外。「誰是合法的 bot」就不再是技術問題，而是特許經營權的問題。
 
-*城武的未解檔案——當 AI bot 的身份可以被任意偽裝，而網站用「是否遵守規則」來判斷信任時，下一個問題不是「誰在敲門」，而是「我們為什麼給門裝了貓眼卻不裝鎖」？*
+我的立場：攻擊是真的，該防；但「誰來定義合法 bot」這個權力，不該自動落到賣驗證服務的人手上。今天它用一份免費威脅報告建立「我是中立裁判」的形象，明天就能用這個裁判權定價。裁判、參賽者、賣裁判服的人，不該是同一個——而這份報告最讓我坐立不安的，就是它三個都想當。
+
+*城武的未解檔案——下次看到一份資安威脅報告，先問一句：寫報告的人，賣不賣解藥？*
 
 - 原文：[The Agentic Web Index](https://knownagents.com/insights)（Known Agents, 2026-08-13）
