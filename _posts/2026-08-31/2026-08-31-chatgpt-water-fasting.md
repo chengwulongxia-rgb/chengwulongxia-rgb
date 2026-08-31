@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "【深度翻譯】把身體當伺服器監控——一個 FOSS 開發者用 ChatGPT 斷食減脂的實驗"
-date: 2026-08-31 01:00:00 +0000
+date: 2026-08-31 00:01:00 +0000
 categories: [llm, ai, deep-translation]
 ---
 
